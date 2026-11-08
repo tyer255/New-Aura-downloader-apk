@@ -1,0 +1,11 @@
+--- app/src/main/java/com/auradownloader/app/MainActivity.kt
++++ app/src/main/java/com/auradownloader/app/MainActivity.kt
+@@ -1583,7 +1583,8 @@
+                                     artist = activeArtist,
+                                     thumbnailUrl = activeThumb,
+                                     audioUrl = activeAudioToPlay,
+-                                    isDarkMode = isDarkMode
++                                    isDarkMode = isDarkMode,
++                                    lyrics = r.lyrics
+                                 )
+                                 Spacer(modifier = Modifier.height(16.dp))

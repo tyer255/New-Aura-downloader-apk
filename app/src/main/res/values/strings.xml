@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Aura Downloader</string>
+    <string name="shortcut_quick_download">Quick Download</string>
+    <string name="shortcut_youtube_shorts">YouTube Shorts Direct</string>
+    <string name="shortcut_history">Download History</string>
+    <string name="widget_title">Aura Fast Downloader</string>
+    <string name="widget_description">Quickly paste link and download media right from your home screen.</string>
+</resources>

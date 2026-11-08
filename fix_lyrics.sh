@@ -1,0 +1,2 @@
+sed -i 's/val currentIndex = remember(currentPositionMs, parsedLyrics, userLyricsOffsetMs) {/val currentIndex = remember(currentPositionMs, parsedLyrics) {/g' app/src/main/java/com/auradownloader/app/SyncedLyricsView.kt
+sed -i 's/parsedLyrics.indexOfLast { it.timeMs <= currentPositionMs + userLyricsOffsetMs }/parsedLyrics.indexOfLast { it.timeMs <= currentPositionMs }/g' app/src/main/java/com/auradownloader/app/SyncedLyricsView.kt

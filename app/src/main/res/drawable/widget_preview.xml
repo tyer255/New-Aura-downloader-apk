@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="280dp"
+    android:height="90dp"
+    android:viewportWidth="280"
+    android:viewportHeight="90">
+
+    <!-- Outer Soft Electric Blue Ambient Glow Rim -->
+    <path
+        android:pathData="M18,0 h244 a18,18 0 0 1 18,18 v54 a18,18 0 0 1 -18,18 h-244 a18,18 0 0 1 -18,-18 v-54 a18,18 0 0 1 18,-18 z"
+        android:fillColor="#302D8CFF" />
+
+    <!-- Dark Glass Body (#121212) -->
+    <path
+        android:pathData="M18,1 h244 a17,17 0 0 1 17,17 v54 a17,17 0 0 1 -17,17 h-244 a17,17 0 0 1 -17,-17 v-54 a17,17 0 0 1 17,-17 z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="0"
+                android:startY="0"
+                android:endX="280"
+                android:endY="90"
+                android:type="linear">
+                <item android:color="#85161720" android:offset="0.0" />
+                <item android:color="#66101117" android:offset="0.5" />
+                <item android:color="#850C0D14" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Outer Border Rim (Electric Blue Glass Edge) -->
+    <path
+        android:pathData="M18,1 h244 a17,17 0 0 1 17,17 v54 a17,17 0 0 1 -17,17 h-244 a17,17 0 0 1 -17,-17 v-54 a17,17 0 0 1 17,-17 z"
+        android:strokeWidth="1.2"
+        android:strokeColor="#452D8CFF" />
+
+    <!-- App Logo Circle/Squircle Container (56px) on Left -->
+    <path
+        android:pathData="M16,17 h28 a14,14 0 0 1 14,14 v28 a14,14 0 0 1 -14,14 h-28 a14,14 0 0 1 -14,-14 v-28 a14,14 0 0 1 14,-14 z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="10"
+                android:startY="17"
+                android:endX="60"
+                android:endY="73"
+                android:type="linear">
+                <item android:color="#0066FF" android:offset="0.0" />
+                <item android:color="#8B5CF6" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Logo Inner White Download Arrow -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M38,33 h8 v11 h7 l-11,11 l-11,-11 h7 z" />
+
+    <!-- Top Row: URL Input Bar Container -->
+    <path
+        android:pathData="M90,13 h160 a14,14 0 0 1 14,14 v6 a14,14 0 0 1 -14,14 h-160 a14,14 0 0 1 -14,-14 v-6 a14,14 0 0 1 14,-14 z"
+        android:fillColor="#50000000"
+        android:strokeWidth="1"
+        android:strokeColor="#20FFFFFF" />
+
+    <!-- Link Icon inside Input Bar -->
+    <path
+        android:pathData="M90,28 a3.5,3.5 0 0,0 5,0l2,-2"
+        android:strokeWidth="1.5"
+        android:strokeColor="#2D8CFF"
+        android:strokeLineCap="round"/>
+
+    <!-- Small Glowing Blue "Paste" Chip attached inside Input Bar -->
+    <path
+        android:pathData="M222,16 h32 a10,10 0 0 1 10,10 v8 a10,10 0 0 1 -10,10 h-32 a10,10 0 0 1 -10,-10 v-8 a10,10 0 0 1 10,-10 z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="210"
+                android:startY="16"
+                android:endX="264"
+                android:endY="44"
+                android:type="linear">
+                <item android:color="#FF2D8CFF" android:offset="0.0" />
+                <item android:color="#FF0052FF" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Bottom Row: Electric Blue "Download" Button -->
+    <path
+        android:pathData="M90,52 h160 a14,14 0 0 1 14,14 v6 a14,14 0 0 1 -14,14 h-160 a14,14 0 0 1 -14,-14 v-6 a14,14 0 0 1 14,-14 z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="80"
+                android:startY="52"
+                android:endX="260"
+                android:endY="86"
+                android:type="linear">
+                <item android:color="#FF2D8CFF" android:offset="0.0" />
+                <item android:color="#FF0052FF" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Download Button Border -->
+    <path
+        android:pathData="M90,52 h160 a14,14 0 0 1 14,14 v6 a14,14 0 0 1 -14,14 h-160 a14,14 0 0 1 -14,-14 v-6 a14,14 0 0 1 14,-14 z"
+        android:strokeWidth="1"
+        android:strokeColor="#40FFFFFF" />
+
+    <!-- White Download Arrow Icon in Download Button -->
+    <path
+        android:pathData="M248,60 v8 M245,65 L248,68 L251,65 M243,71 h10"
+        android:strokeWidth="1.8"
+        android:strokeColor="#FFFFFF"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+
+</vector>

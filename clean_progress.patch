@@ -1,0 +1,53 @@
+--- app/src/main/java/com/auradownloader/app/MainActivity.kt
++++ app/src/main/java/com/auradownloader/app/MainActivity.kt
+@@ -1090,13 +1090,6 @@
+                 isDownloading = true
+                 previewThumbnailUrl = null
+                                 previewTitle = null
+-                                launch {
+-                                    extractionProgress = 0f
+-                                    extractionProgress = 0f
+-                                    val startTime = System.currentTimeMillis()
+-                                    while (isDownloading && extractionProgress < 0.99f) {
+-                                        kotlinx.coroutines.delay(30)
+-                                        val elapsed = System.currentTimeMillis() - startTime
+-                                        extractionProgress = 0.99f * (1f - kotlin.math.exp(-elapsed / 4000f).toFloat())
+-                                        loadingStep = (extractionProgress * LOADING_STEPS.size).toInt().coerceIn(0, LOADING_STEPS.lastIndex)
+-                                    }
+-                                }
+ 
+                 try {
+@@ -1252,13 +1245,6 @@
+                                 isDownloading = true
+                                 previewThumbnailUrl = null
+                                 previewTitle = null
+-                                launch {
+-                                    extractionProgress = 0f
+-                                    extractionProgress = 0f
+-                                    val startTime = System.currentTimeMillis()
+-                                    while (isDownloading && extractionProgress < 0.99f) {
+-                                        kotlinx.coroutines.delay(30)
+-                                        val elapsed = System.currentTimeMillis() - startTime
+-                                        extractionProgress = 0.99f * (1f - kotlin.math.exp(-elapsed / 4000f).toFloat())
+-                                        loadingStep = (extractionProgress * LOADING_STEPS.size).toInt().coerceIn(0, LOADING_STEPS.lastIndex)
+-                                    }
+-                                }
+ 
+                                 try {
+@@ -1375,13 +1361,6 @@
+                             isDownloading = true
+                             previewThumbnailUrl = null
+                             previewTitle = null
+-                            launch {
+-                                extractionProgress = 0f
+-                                extractionProgress = 0f
+-                                val startTime = System.currentTimeMillis()
+-                                while (isDownloading && extractionProgress < 0.99f) {
+-                                    kotlinx.coroutines.delay(30)
+-                                    val elapsed = System.currentTimeMillis() - startTime
+-                                    extractionProgress = 0.99f * (1f - kotlin.math.exp(-elapsed / 4000f).toFloat())
+-                                    loadingStep = (extractionProgress * LOADING_STEPS.size).toInt().coerceIn(0, LOADING_STEPS.lastIndex)
+-                                }
+-                            }
+                             
+                             try {

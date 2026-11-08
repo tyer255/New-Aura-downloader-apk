@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Dark rounded square background with smooth squircle corners (radius 26) -->
+    <path
+        android:pathData="M26,0 h56 a26,26 0 0 1 26,26 v56 a26,26 0 0 1 -26,26 h-56 a26,26 0 0 1 -26,-26 v-56 a26,26 0 0 1 26,-26 z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="0"
+                android:startY="0"
+                android:endX="108"
+                android:endY="108"
+                android:type="linear">
+                <item android:color="#0D1322" android:offset="0.0" />
+                <item android:color="#060913" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Bottom ambient wave - Left Blue (curved to follow bottom rounded corner) -->
+    <path
+        android:pathData="M0,72 Q25,85 54,90 Q80,95 108,82 v0 a26,26 0 0 1 -26,26 h-56 a26,26 0 0 1 -26,-26 z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="0"
+                android:startY="72"
+                android:endX="108"
+                android:endY="108"
+                android:type="linear">
+                <item android:color="#0066FF" android:offset="0.0" />
+                <item android:color="#003399" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Bottom ambient wave - Right Purple (curved to follow bottom rounded corner) -->
+    <path
+        android:pathData="M25,108 Q65,80 108,70 v12 a26,26 0 0 1 -26,26 h-57 z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="25"
+                android:startY="70"
+                android:endX="108"
+                android:endY="108"
+                android:type="linear">
+                <item android:color="#8B5CF6" android:offset="0.0" />
+                <item android:color="#5B21B6" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- The 3D 'A' Ribbon Main Arch -->
+    <path
+        android:pathData="M28,68 C35,42 46,20 54,20 C64,20 78,38 78,66 C68,72 58,54 54,34 C44,52 35,66 28,68 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="28"
+                android:startY="68"
+                android:endX="78"
+                android:endY="20"
+                android:type="linear">
+                <item android:color="#0055FF" android:offset="0.0" />
+                <item android:color="#00C8FF" android:offset="0.5" />
+                <item android:color="#0066FF" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Outer right ribbon fold extension -->
+    <path
+        android:pathData="M54,20 C68,20 79,36 79,64 C79,68 70,66 64,58 C70,42 62,24 54,20 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="54"
+                android:startY="20"
+                android:endX="79"
+                android:endY="64"
+                android:type="linear">
+                <item android:color="#00B2FF" android:offset="0.0" />
+                <item android:color="#0040C0" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Central White Download Arrow -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M51,46 h6 v15 h8 l-11,12 l-11,-12 h8 z" />
+
+    <!-- Cyan Tray at the bottom of Arrow -->
+    <path
+        android:pathData="M40,68 v6 a6,6 0 0 0 6,6 h16 a6,6 0 0 0 6,-6 v-6"
+        android:strokeWidth="4"
+        android:strokeColor="#00E5FF"
+        android:strokeLineCap="round"
+        android:strokeLineJoin="round" />
+
+</vector>

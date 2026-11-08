@@ -1,0 +1,1 @@
+perl -0777 -pi -e 's/androidx\.localbroadcastmanager\.content\.LocalBroadcastManager\.getInstance\(context\)\.sendBroadcast\(localIntent\)/localIntent.setPackage(context.packageName)\n                            context.sendBroadcast(localIntent)/g' app/src/main/java/com/auradownloader/app/DownloadReceiver.kt

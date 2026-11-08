@@ -1,0 +1,29 @@
+--- app/src/main/java/com/auradownloader/app/MusicPlaybackService.kt
++++ app/src/main/java/com/auradownloader/app/MusicPlaybackService.kt
+@@ -124,10 +124,25 @@
+         
+         // Start updating position
+         serviceScope.launch {
++            var lastRealTime = 0L
++            var lastMediaPosition = 0
+             while (isActive) {
+                 mediaPlayer?.let { mp ->
+                     try {
+                         if (mp.isPlaying) {
+-                            MusicController.updatePosition(mp.currentPosition, mp.duration)
++                            val currentRealTime = android.os.SystemClock.elapsedRealtime()
++                            val pos = mp.currentPosition
++                            val dur = mp.duration
++                            if (pos != lastMediaPosition) {
++                                lastMediaPosition = pos
++                                lastRealTime = currentRealTime
++                            }
++                            val interpolatedPosition = if (lastRealTime > 0) {
++                                pos + (currentRealTime - lastRealTime).toInt()
++                            } else pos
++                            val finalPos = minOf(interpolatedPosition, dur).coerceAtLeast(0)
++                            MusicController.updatePosition(finalPos, dur)
++                        } else {
++                            lastRealTime = 0L
+                         }
+                     } catch (e: Exception) {

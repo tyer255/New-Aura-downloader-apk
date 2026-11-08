@@ -1,0 +1,1 @@
+perl -0777 -pi -e 's/var userLyricsOffsetMs by remember \{ mutableLongStateOf\(-800L\)\}/var userLyricsOffsetMs by remember { mutableLongStateOf(0L) }/g' app/src/main/java/com/auradownloader/app/SyncedLyricsView.kt
