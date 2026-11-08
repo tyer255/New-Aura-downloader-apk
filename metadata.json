@@ -1,0 +1,6 @@
+{
+  "name": "Aura Downloader",
+  "description": "Aura Downloader - Free tool to download videos",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

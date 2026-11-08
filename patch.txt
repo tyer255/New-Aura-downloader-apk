@@ -1,0 +1,40 @@
+suspend fun extractWithCobalt(url: String): DownloadResult = withContext(Dispatchers.IO) {
+    val backendUrl = BuildConfig.BACKEND_URL
+    
+    // FAST EXTRACTION FOR YOUTUBE
+    if (url.contains("youtube.com") || url.contains("youtu.be")) {
+        val videoIdRegex = "(?:youtube\\.com\\/(?:[^\\/]+\\/.+\\/|(?:v|e(?:mbed)?)\\/|.*[?&]v=)|youtu\\.be\\/)([^\"&?\\/\\s]{11})".toRegex()
+        val match = videoIdRegex.find(url)
+        val videoId = match?.groupValues?.get(1)
+        if (videoId != null) {
+            val title = "YouTube Video"
+            val thumbnail = "https://i.ytimg.com/vi/$videoId/hqdefault.jpg"
+            val baseApiUrl = backendUrl.replace("/api/download", "")
+            val encodedUrl = java.net.URLEncoder.encode(url, "UTF-8")
+            val qs = listOf(
+                MediaQuality("144p (MP4)", null, "$baseApiUrl/api/youtube-stream?url=$encodedUrl&quality=144"),
+                MediaQuality("360p (MP4)", null, "$baseApiUrl/api/youtube-stream?url=$encodedUrl&quality=360"),
+                MediaQuality("720p (MP4)", null, "$baseApiUrl/api/youtube-stream?url=$encodedUrl&quality=720"),
+                MediaQuality("1080p (MP4)", null, "$baseApiUrl/api/youtube-stream?url=$encodedUrl&quality=1080")
+            )
+            // Wait slightly for fake progress
+            delay(1500)
+            return@withContext DownloadResult(true, title, thumbnail, qs)
+        }
+    }
+    
+    // FAST EXTRACTION FOR INSTAGRAM/TIKTOK
+    // If the url is IG or TikTok, we will just use the proxy-download directly to skip extraction wait!
+    if (url.contains("instagram.com") || url.contains("tiktok.com")) {
+        val title = if (url.contains("instagram")) "Instagram Video" else "TikTok Video"
+        val baseApiUrl = backendUrl.replace("/api/download", "")
+        val encodedUrl = java.net.URLEncoder.encode(url, "UTF-8")
+        val qs = listOf(
+            MediaQuality("Download (MP4)", null, "$baseApiUrl/api/proxy-download?url=$encodedUrl")
+        )
+        delay(1500)
+        return@withContext DownloadResult(true, title, "", qs)
+    }
+
+    try {
+        val jsonPayload = JSONObject().apply { put("url", url) }.toString()

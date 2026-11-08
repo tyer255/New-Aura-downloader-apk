@@ -1,0 +1,1 @@
+perl -0777 -pi -e 's/setOnSeekCompleteListener \{ mp ->/setOnBufferingUpdateListener \{ _, percent ->\n                    MusicController.updateBufferingPercent(percent)\n                \}\n                setOnSeekCompleteListener \{ mp ->/g' app/src/main/java/com/auradownloader/app/MusicPlaybackService.kt

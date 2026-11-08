@@ -1,0 +1,9 @@
+--- app/src/main/java/com/auradownloader/app/MainActivity.kt
++++ app/src/main/java/com/auradownloader/app/MainActivity.kt
+@@ -1795,7 +1795,7 @@
+             }
+ 
+-            Spacer(modifier = Modifier.height(32.dp))
++            Spacer(modifier = Modifier.height(120.dp))
+         }
+     }

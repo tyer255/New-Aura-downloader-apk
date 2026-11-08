@@ -1,0 +1,6 @@
+--- app/src/main/java/com/auradownloader/app/MainActivity.kt
++++ app/src/main/java/com/auradownloader/app/MainActivity.kt
+@@ -1417,13 +1417,13 @@
+             Button(
+                 onClick = {
+                     if (url.isNotEmpty()) {

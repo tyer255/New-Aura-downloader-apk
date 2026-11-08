@@ -1,0 +1,1 @@
+perl -0777 -pi -e 's/        startSimulatedBuffering\(\)\n\n            title = title,/        startSimulatedBuffering()\n        _playbackState.value = _playbackState.value.copy(\n            url = url,\n            title = title,/g' app/src/main/java/com/auradownloader/app/MusicPlaybackService.kt

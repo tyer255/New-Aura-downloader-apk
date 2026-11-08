@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Dark glass pill input background -->
+    <item>
+        <shape android:shape="rectangle">
+            <corners android:radius="14dp" />
+            <solid android:color="#50000000" />
+            <stroke
+                android:width="1dp"
+                android:color="#20FFFFFF" />
+        </shape>
+    </item>
+</layer-list>

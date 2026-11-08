@@ -1,0 +1,3 @@
+perl -0777 -pi -e 's/Text\("%", color = textMain, style = MaterialTheme.typography.labelMedium, fontWeight = FontWeight.Bold\)/Text("\${bufferingPercent}%", color = textMain, style = MaterialTheme.typography.labelMedium, fontWeight = FontWeight.Bold)/g' app/src/main/java/com/auradownloader/app/MainActivity.kt
+
+perl -0777 -pi -e 's/Text\("%", color = textMain, style = MaterialTheme.typography.labelSmall, fontWeight = FontWeight.Bold\)/Text("\${bufferingPercent}%", color = textMain, style = MaterialTheme.typography.labelSmall, fontWeight = FontWeight.Bold)/g' app/src/main/java/com/auradownloader/app/MainActivity.kt

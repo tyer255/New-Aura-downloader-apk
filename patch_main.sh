@@ -1,0 +1,1 @@
+perl -0777 -pi -e 's/val isBuffering = playbackState\.isBuffering/val isBuffering = playbackState.isBuffering\n    val bufferingPercent = playbackState.bufferingPercent/g' app/src/main/java/com/auradownloader/app/MainActivity.kt

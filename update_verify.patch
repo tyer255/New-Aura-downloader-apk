@@ -1,0 +1,12 @@
+--- app/src/main/java/com/auradownloader/app/MainActivity.kt
++++ app/src/main/java/com/auradownloader/app/MainActivity.kt
+@@ -845,7 +845,8 @@
+             .build()
+         val res = okHttpClient.newCall(req).execute()
+         val code = res.code
+-        val isSuccess = code in 200..299 || code in 300..399
++        val contentType = res.header("Content-Type") ?: ""
++        val isSuccess = (code in 200..299 || code in 300..399) && !contentType.contains("application/json") && !contentType.contains("text/html")
+         res.close()
+         return@withContext isSuccess
+     } catch (e: Exception) {

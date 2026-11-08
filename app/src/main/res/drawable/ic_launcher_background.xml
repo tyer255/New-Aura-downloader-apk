@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <path
+        android:pathData="M0,0h108v108h-108z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="0"
+                android:startY="0"
+                android:endX="108"
+                android:endY="108"
+                android:type="linear">
+                <item android:color="#0B1120" android:offset="0.0" />
+                <item android:color="#060913" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <!-- Bottom ambient wave - Left Blue -->
+    <path
+        android:pathData="M0,72 Q25,85 54,90 Q80,95 108,82 L108,108 L0,108 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="0"
+                android:startY="72"
+                android:endX="108"
+                android:endY="108"
+                android:type="linear">
+                <item android:color="#0066FF" android:offset="0.0" />
+                <item android:color="#003399" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+
+    <!-- Bottom ambient wave - Right Purple -->
+    <path
+        android:pathData="M25,108 Q65,80 108,70 L108,108 Z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="25"
+                android:startY="70"
+                android:endX="108"
+                android:endY="108"
+                android:type="linear">
+                <item android:color="#8B5CF6" android:offset="0.0" />
+                <item android:color="#5B21B6" android:offset="1.0" />
+            </gradient>
+        </aapt:attr>
+    </path>
+</vector>

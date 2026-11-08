@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <script>
+      try {
+        const theme = localStorage.getItem('theme');
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+          document.documentElement.style.backgroundColor = '#1a1a1a';
+        } else {
+          document.documentElement.style.backgroundColor = '#fafaf9';
+        }
+      } catch (e) {}
+    </script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="dns-prefetch" href="https://aura-download.ai.studio" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+
+    <title data-rh="true">Aura Downloader - Fast YouTube, TikTok, IG, FB & X Video Downloader</title>
+    <meta name="description" data-rh="true" content="Aura Downloader is the best tool to download videos, Shorts, and Reels from YouTube, TikTok, Instagram, Facebook, Pinterest, and Twitter (X) for free in HD quality." />
+    <meta name="keywords" data-rh="true" content="Aura Downloader, YouTube downloader, YouTube Shorts downloader, YouTube Reel downloader, TikTok downloader, Instagram Reel downloader, Facebook video downloader, Pinterest video downloader, Twitter video downloader, X video downloader, Free video downloader, HD video downloader" />
+    <meta property="og:title" data-rh="true" content="Aura Downloader - Free Social Media Video Downloader" />
+    <meta property="og:description" data-rh="true" content="Download YouTube Shorts, TikToks, Instagram Reels, and more easily with Aura Downloader in high quality." />
+    <meta property="og:type" data-rh="true" content="website" />
+    <meta property="og:url" data-rh="true" content="https://aura-download.ai.studio/" />
+    <meta name="twitter:card" data-rh="true" content="summary_large_image" />
+    <meta name="twitter:title" data-rh="true" content="Aura Downloader" />
+    <meta name="twitter:description" data-rh="true" content="The best free tool to download videos from YouTube, TikTok, Instagram, and more." />
+  
+    
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Aura Downloader",
+      "url": "https://aura-download.ai.studio/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://aura-download.ai.studio/?url={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+  <script type="module" crossorigin src="/assets/index-pwokiucv.js"></script>
+  <link rel="modulepreload" crossorigin href="/assets/vendor-bD9x6-Mf.js">
+  <link rel="modulepreload" crossorigin href="/assets/motion-CG1Js48-.js">
+  <link rel="modulepreload" crossorigin href="/assets/icons-B6hP4nxO.js">
+  <link rel="stylesheet" crossorigin href="/assets/index-Ccu_okC8.css">
+<meta property="og:image" content="https://aura-downloader-yg40.onrender.com/banner.jpg" />
+<meta name="twitter:image" content="https://aura-downloader-yg40.onrender.com/banner.jpg" />
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+

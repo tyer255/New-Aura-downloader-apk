@@ -1,0 +1,93 @@
+2701:     thumbnailUrl: String
+2702: ) {
+2703:     coroutineScope.launch(Dispatchers.IO) {
+2704:         try {
+2705:             withContext(Dispatchers.Main) {
+2706:                 Toast.makeText(context, "Preparing high quality download...", Toast.LENGTH_SHORT).show()
+2707:             }
+2708:             var initialUrl = if (q.url.startsWith("http")) q.url else "https://aura-downloader-yg40.onrender.com${if (q.url.startsWith("/")) "" else "/"}${q.url}"
+2709:             var finalDirectUrl = initialUrl
+2710: 
+2711:             if (initialUrl.contains("spotify-resolve")) {
+2712:                 if (title.isNotEmpty()) {
+2713:                     try {
+2714:                         val encT = java.net.URLEncoder.encode(title, "UTF-8")
+2715:                         if (initialUrl.contains("title=&")) initialUrl = initialUrl.replace("title=&", "title=$encT&")
+2716:                         else if (initialUrl.endsWith("title=")) initialUrl += encT
+2717:                         else if (!initialUrl.contains("title=")) initialUrl += "&title=$encT"
+2718:                     } catch (e: Exception) { e.printStackTrace() }
+2719:                 }
+2720:             }
+2721:             if (initialUrl.contains("/api/get-youtube-link") || initialUrl.contains("get-youtube-link") || initialUrl.contains("spotify-resolve")) {
+2722:                 try {
+2723:                     val req = Request.Builder()
+2724:                         .url(initialUrl)
+2725:                         .addHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36")
+2726:                         .build()
+2727:                     val res = okHttpClient.newCall(req).execute()
+2728:                     if (res.isSuccessful) {
+2729:                         val body = res.body?.string() ?: ""
+2730:                         if (body.trim().startsWith("{")) {
+2731:                             val json = JSONObject(body)
+2732:                             if (json.optBoolean("success", true) && json.has("url")) {
+2733:                                 val extractedUrl = json.getString("url")
+2734:                                 if (extractedUrl.isNotEmpty()) {
+2735:                                     finalDirectUrl = extractedUrl
+2736:                                 }
+2737:                             }
+2738:                         }
+2739:                     }
+2740:                 } catch (e: Exception) {
+2741:                     e.printStackTrace()
+2742:                 }
+2743:             }
+2744: 
+2745:             if (!finalDirectUrl.startsWith("http")) {
+2746:                 finalDirectUrl = "https://aura-downloader-yg40.onrender.com${if (finalDirectUrl.startsWith("/")) "" else "/"}$finalDirectUrl"
+2747:             }
+2748: 
+2749:             val ext = guessExtension(finalDirectUrl, q.label)
+2750:             val sanitizedTitle = title.replace(Regex("""[\\/:*?"<>|]"""), "_").take(40).ifEmpty { "Aura_Media" }
+2751:             val filename = "Aura_${sanitizedTitle}_${System.currentTimeMillis()}.$ext"
+2752: 
+2753:             val request = android.app.DownloadManager.Request(android.net.Uri.parse(finalDirectUrl))
+2754:             request.setTitle(title.ifEmpty { "Aura Download" })
+2755:             request.setDescription("Downloading $ext file...")
+2756:             request.setNotificationVisibility(android.app.DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED)
+2757:             request.setAllowedOverMetered(true)
+2758:             request.setAllowedOverRoaming(true)
+2759: 
+2760:             request.addRequestHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36")
+2761:             request.addRequestHeader("Accept", "*/*")
+2762: 
+2763:             request.setDestinationInExternalPublicDir(android.os.Environment.DIRECTORY_DOWNLOADS, filename)
+2764: 
+2765:             val mimeType = when (ext) {
+2766:                 "zip" -> "application/zip"
+2767:                 "mp4" -> "video/mp4"
+2768:                 "webm" -> "video/webm"
+2769:                 "mp3" -> "audio/mpeg"
+2770:                 "m4a" -> "audio/mp4"
+2771:                 "jpg", "jpeg" -> "image/jpeg"
+2772:                 "png" -> "image/png"
+2773:                 else -> android.webkit.MimeTypeMap.getSingleton().getMimeTypeFromExtension(ext) ?: "video/mp4"
+2774:             }
+2775:             request.setMimeType(mimeType)
+2776: 
+2777:             val downloadManager = context.getSystemService(Context.DOWNLOAD_SERVICE) as android.app.DownloadManager
+2778:             downloadManager.enqueue(request)
+2779: 
+2780:             PreferencesHelper.saveDownload(context, title.ifEmpty { "Aura Download" }, thumbnailUrl)
+2781: 
+2782:             withContext(Dispatchers.Main) {
+2783:                 Toast.makeText(context, "Download started: $filename", Toast.LENGTH_LONG).show()
+2784:             }
+2785:         } catch (e: Exception) {
+2786:             withContext(Dispatchers.Main) {
+2787:                 Toast.makeText(context, "Download failed: ${e.message}", Toast.LENGTH_LONG).show()
+2788:             }
+2789:         }
+2790:     }
+2791: }
+2792: 
+2793: fun guessExtension(url: String, label: String): String {
